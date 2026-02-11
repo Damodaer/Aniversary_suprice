@@ -18,7 +18,8 @@ emojiBurst("❤️,💖,💕");
 
 function nextPage(){
 
-    startMusic();   // 👈 ensures music starts
+    const music = document.getElementById("bgMusic");
+    music.play().catch(()=>{});
 
     if(current < pages.length-1){
         current++;
@@ -112,22 +113,35 @@ style.innerHTML=`
 document.head.appendChild(style);
 
 
-const music = document.getElementById("bgMusic");
+document.addEventListener("DOMContentLoaded", function(){
 
-function startMusic() {
+    const music = document.getElementById("bgMusic");
 
-    if (music.paused) {
-        music.play().then(() => {
-            console.log("Music started");
-        }).catch(err => {
-            console.log("Music blocked:", err);
-        });
+    function unlockAudio() {
+
+        music.muted = false;
+        music.volume = 1;
+
+        let playPromise = music.play();
+
+        if (playPromise !== undefined) {
+            playPromise
+                .then(() => {
+                    console.log("Music started successfully");
+                })
+                .catch((error) => {
+                    console.log("Playback failed:", error);
+                });
+        }
+
+        document.removeEventListener("touchstart", unlockAudio);
+        document.removeEventListener("click", unlockAudio);
     }
-}
 
-// Start music when user interacts ANYWHERE
-document.addEventListener("touchstart", startMusic, { once: true });
-document.addEventListener("click", startMusic, { once: true });
+    document.addEventListener("touchstart", unlockAudio);
+    document.addEventListener("click", unlockAudio);
+});
+
 
 // Heart Background Canvas
 const canvas=document.getElementById("hearts");
