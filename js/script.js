@@ -44,17 +44,32 @@ setTimeout(typing,80);
 typing();
 
 // Emoji Burst
-function emojiBurst(emoji){
-for(let i=0;i<15;i++){
-let span=document.createElement("span");
-span.innerText=emoji;
-span.className="emoji";
-span.style.left=Math.random()*100+"%";
-document.body.appendChild(span);
+function emojiBurst(){
 
-setTimeout(()=>span.remove(),2000);
+    const emojis = ["❤️","💖","💕","💘","✨","🌹"];
+    const total = 25;   // number of floating emojis
+
+    for(let i=0;i<total;i++){
+
+        let span = document.createElement("span");
+
+        span.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+        span.classList.add("floatingEmoji");
+
+        // Random horizontal position
+        span.style.left = Math.random()*100 + "%";
+
+        // Random animation speed
+        span.style.animationDuration = (3 + Math.random()*2) + "s";
+
+        document.body.appendChild(span);
+
+        // Remove after animation
+        setTimeout(()=>span.remove(),5000);
+    }
 }
-}
+
+
 
 // Proposal Popup
 function funResponse(type){
@@ -77,22 +92,21 @@ emojiBurst("💖");
 function closePopup(){
 document.getElementById("popup").style.display="none";
 }
-
-
 // Floating Emoji Style
 let style=document.createElement('style');
+
 style.innerHTML=`
-.emoji{
-position:fixed;
-top:100%;
-font-size:25px;
-animation: float 2s linear;
+.emojiBurst{
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    font-size: 30px;
+    transition: transform 3.5s ease-out, opacity 3.5s ease-out;
 }
-@keyframes float{
-from{transform:translateY(0);}
-to{transform:translateY(-800px);}
-}`;
+`;
+
 document.head.appendChild(style);
+
 
 const music = document.getElementById("bgMusic");
 

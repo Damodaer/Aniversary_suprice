@@ -45,45 +45,58 @@ animation: slide 1s;
 display:block;
 }
 
-.popup{
-position:fixed;
-top:0;
-left:0;
+/* img{
 width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:999;
-}
-
-.popup-content{
-background:linear-gradient(135deg,#ff4d6d,#ff99ac);
-padding:30px;
+height: 300px;
+object-fit: contain;
 border-radius:20px;
-text-align:center;
-color:white;
-width:85%;
-max-width:350px;
-box-shadow:0 0 30px pink;
-animation: pop 0.5s ease;
-}
-
-.popup-content p{
-font-size:18px;
-margin-bottom:20px;
-}
-
-@keyframes pop{
-from{transform:scale(0.5);opacity:0;}
-to{transform:scale(1);opacity:1;}
-}
-
-img{
-width:100%;
-border-radius:20px;
+margin: 20px;
 box-shadow:0 0 25px pink;
+} */
+
+.img1 {
+    width: 320px;
+    height: auto;
+    object-fit: contain;
+    border-radius:20px;
+    margin: 20px;
+    box-shadow:0 0 25px pink;
+}
+
+.img2 {
+    width: 260px;
+    height: auto;
+    object-fit: contain;
+    border-radius:20px;
+    margin: 20px;
+    box-shadow:0 0 25px pink;
+}
+
+.img3 {
+    width: 400px;
+    height: 450px;
+    object-fit: contain;
+    border-radius:20px;
+    margin: 20px;
+    box-shadow:0 0 25px pink;
+}
+
+.img4 {
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    border-radius:20px;
+    margin: 20px;
+    box-shadow:0 0 25px pink;
+}
+
+.img5 {
+    width: 350px;
+    height: 320px;
+    object-fit: contain;
+    border-radius:20px;
+    margin: 20px;
+    box-shadow:0 0 25px pink;
 }
 
 button{
@@ -112,6 +125,30 @@ text-align:center;
 .typing{
 font-size:30px;
 color:pink;
+}
+
+.floatingEmoji{
+    position: fixed;
+    bottom: -40px;
+    font-size: 26px;
+    pointer-events: none;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp{
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    20%{
+        opacity: 1;
+    }
+
+    100%{
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
 }
 
 @keyframes slide{
