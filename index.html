@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- Preloader -->
+<div id="preloader">Loading My Love Story ❤️</div>
+
+<!-- Background Music -->
+<audio id="bgMusic"  loop>
+<source src="music/romantic.mp3" type="audio/mp3">
+</audio>
+
+<canvas id="hearts"></canvas>
+
+<div class="container">
+
+<section class="page active">
+<h1 class="typing"></h1>
+</section>
+
+<section class="page">
+<img src="images/img1.jpg">
+<p>9 years ago my life changed forever You are the best chapter of my life 💕</p>
+</section>
+
+<section class="page">
+<img src="images/img2.jpg">
+<p>We laughed, cried and grew together, Every moment with you is magical ✨</p>
+</section>
+
+<section class="page">
+<img src="images/img3.jpg">
+<p>Thank you for always standing beside me becasue You are my happiness ❤️</p>
+</section>
+
+<section class="page">
+<img src="images/img4.jpg">
+<p>Will you continue this journey with me forever? 💍</p>
+</section>
+
+<section class="page">
+<img src="images/img5.jpg">
+<p class="final">
+Will you stay with me forever? 💍
+</p>
+
+<button onclick="funResponse('yes')">YES ❤️</button>
+<button onclick="funResponse('forever')">FOREVER 💖</button>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <p id="popupText"></p>
+        <button onclick="closePopup()">Close 💕</button>
+    </div>
+</div>
+
+
+</section>
+
+</div>
+
+<div class="nav">
+<button onclick="prevPage()">⬅</button>
+<button onclick="nextPage()">➡</button>
+</div>
+
+
+
+<script src="js/script.js"></script>
+</body>
+</html>
