@@ -73,11 +73,13 @@ box-shadow:0 0 25px pink;
 }
 
 .img3 {
-    width: 400px;
+    width: 100px;
+    max-width: 400px;
     height: 450px;
     object-fit: contain;
     border-radius:20px;
     margin: 20px;
+    display: block;
     box-shadow:0 0 25px pink;
 }
 

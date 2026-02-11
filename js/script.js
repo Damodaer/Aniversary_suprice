@@ -111,12 +111,14 @@ document.head.appendChild(style);
 const music = document.getElementById("bgMusic");
 
 function startMusic(){
-    music.play().catch(()=>{});
+
+    music.play().catch(() => {});
+
     document.removeEventListener("touchstart", startMusic);
     document.removeEventListener("click", startMusic);
+    document.removeEventListener("swipe", startMusic);
 }
 
-// Start music on first interaction
 document.addEventListener("touchstart", startMusic);
 document.addEventListener("click", startMusic);
 
