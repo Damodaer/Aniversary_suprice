@@ -17,11 +17,15 @@ emojiBurst("❤️,💖,💕");
 }
 
 function nextPage(){
-if(current<pages.length-1){
-current++;
-showPage(current);
+
+    startMusic();   // 👈 ensures music starts
+
+    if(current < pages.length-1){
+        current++;
+        showPage(current);
+    }
 }
-}
+
 
 function prevPage(){
 if(current>0){
@@ -110,17 +114,20 @@ document.head.appendChild(style);
 
 const music = document.getElementById("bgMusic");
 
-function startMusic(){
+function startMusic() {
 
-    music.play().catch(() => {});
-
-    document.removeEventListener("touchstart", startMusic);
-    document.removeEventListener("click", startMusic);
-    document.removeEventListener("swipe", startMusic);
+    if (music.paused) {
+        music.play().then(() => {
+            console.log("Music started");
+        }).catch(err => {
+            console.log("Music blocked:", err);
+        });
+    }
 }
 
-document.addEventListener("touchstart", startMusic);
-document.addEventListener("click", startMusic);
+// Start music when user interacts ANYWHERE
+document.addEventListener("touchstart", startMusic, { once: true });
+document.addEventListener("click", startMusic, { once: true });
 
 // Heart Background Canvas
 const canvas=document.getElementById("hearts");
