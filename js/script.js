@@ -156,3 +156,33 @@ requestAnimationFrame(drawHearts);
 }
 
 drawHearts();
+
+
+// ❤️ Swipe Navigation Code (ADD BELOW)
+
+let startX = 0;
+let endX = 0;
+
+document.addEventListener("touchstart", function(e){
+    startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchend", function(e){
+    endX = e.changedTouches[0].clientX;
+    handleSwipe();
+});
+
+function handleSwipe(){
+
+    let swipeDistance = startX - endX;
+
+    // Swipe Left → Next Page
+    if(swipeDistance > 50){
+        nextPage();
+    }
+
+    // Swipe Right → Previous Page
+    if(swipeDistance < -50){
+        prevPage();
+    }
+}
